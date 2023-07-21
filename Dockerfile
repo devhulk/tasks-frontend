@@ -19,8 +19,6 @@ RUN npm run build
 # production-stage
 FROM nginx:1.24.0-alpine-slim as production-stage
 
-# WORKDIR /app
-
 COPY --from=build-stage /app/dist /app/srv
 
 COPY nginx.conf /etc/nginx/nginx.conf
